@@ -1,4 +1,4 @@
-export function titleBar(containerId, src, alt, title, date) {
+export function titleBar(containerId, src, alt, title) {
     const container = document.getElementById(containerId);
     const div = document.createElement('div');
     div.className = 'titleBar';
