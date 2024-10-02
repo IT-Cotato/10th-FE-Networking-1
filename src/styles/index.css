@@ -1,3 +1,6 @@
+@import './header.css';
+@import './rolling.css';
+
 @font-face {
   font-family: "Pretendard Variable";
   src: url("../assets/fonts/PretendardVariable.ttf") format("truetype");
@@ -11,48 +14,6 @@ body {
 
 #container{
   margin: 0 auto;
-}
-
-#header {
-  width: 930px;
-  min-height: 29px;
-  margin-top: 58px;
-  margin-bottom: 40px;
-
-  display: flex;
-}
-
-#header-image-wrap {
-  width: 50%;
-  height: 29px;
-}
-
-#header-image-wrap img {
-  width: 136px;
-}
-
-#header-date-wrap {
-  width: 50%;
-}
-
-#header-date-wrap p {
-  margin: 0 auto;
-  margin-top: 7px;
-  text-align: end;
-
-  color: #5F6E76;
-  font-family: "Pretendard Variable";
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 22px;
-}
-
-#rolling-nav {
-  border: 2px solid #1235B0;
-  width: 930px;
-  height: 49px;
-  margin-bottom: 39px;
 }
 
 #main {
