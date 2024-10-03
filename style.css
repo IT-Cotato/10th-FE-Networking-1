@@ -1,0 +1,185 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+#newsstand {
+  width: 1715px;
+  height: 968px;
+  flex-shrink: 0;
+  text-align: center; 
+  display: inline-block;
+  margin-top: 56;
+  margin-bottom: 56;
+  margin-left: -98;
+  margin-right: -99;
+  position: relative; /* 자식 요소가 absolute로 배치될 수 있도록 함 */
+}
+#newsstand a:visited {
+  color: inherit;
+}
+#newsstand a{
+  text-decoration: none;
+}
+
+
+
+#newsstand-header {
+  width: 1307px;
+  height: 104px;
+  margin-top: 42px;
+  margin-left: 201px;
+  margin-right: 207px;
+  margin-bottom: 822px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+#newsstand-header .left-content {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+#newsstand-header .bold{
+  font-weight: bold;
+  color: black;
+  font-size: 1.6rem;
+}
+#newsstand-header .left-content .news-icon{
+  margin-left: 20;
+  margin-top: 5;
+  height: auto;
+}
+#newsstand-header .right-content {
+  justify-content: flex-end;
+  margin-right: 20;
+  margin-top: 15;
+  display: flex;
+  align-items: center;
+}
+#newsstand-header .date{
+  font-size: 1rem;
+  color: #858585;
+}
+
+
+
+#newsstand-gray {
+  width: 1307px;
+  height: 104px;
+  position: absolute; /* 부모 요소에 대해 절대 위치 */
+  flex-shrink: 0;
+  text-align: center; 
+  /*background-color: aqua;*/
+  top: 152;
+  left: 201;
+  right: 207;
+  bottom: 712;
+  display: flex; /* Flexbox를 사용하여 가로 정렬 */
+  justify-content: space-between; /* 두 요소 사이에 공간을 배분 */
+  align-items: center; /* 세로 축에서 중앙 정렬 */
+}
+#newsstand-gray #content{
+  text-align: left;
+  background-color: aqua;
+  border: 1px solid #e0e0e0; /* 박스를 위한 테두리 */
+  padding: 15px; /* 내부 여백을 설정하여 텍스트와 박스 사이에 공간을 만듦 */
+  border-radius: 4px; /* 모서리를 둥글게 만듦 */
+  background-color: #f9f9f9; /* 배경 색상 설정 (연한 회색) */
+  width: 45%; /* 항목의 너비를 설정하여 두 항목이 균등하게 배치되도록 함 */
+}
+#newsstand-gray .left{
+  margin-left: 30;
+}
+#newsstand-gray .right{
+  margin-right: 30;
+}
+#newsstand-gray .bold{
+  font-weight: bold;
+}
+#newsstand-gray .underline {
+  text-decoration: none;
+  margin-left: 20;
+}
+#newsstand-gray .underline:hover {
+  text-decoration: underline;
+}
+
+#mediacontent {
+  width: 1305px;
+  height: 620px;
+  flex-shrink: 0;
+  position: absolute;
+  text-align: center; 
+  display: inline-block;
+  top: 264;
+  left: 201;
+  right: 209;
+  bottom: 84;
+}
+#mediaheader {
+  display: flex; /* Flexbox로 자식 요소를 가로로 배치 */
+  justify-content: space-between; /* 좌우로 요소 배치 및 간격 설정 */
+  align-items: center; /* 세로 중앙 정렬 */
+}
+#mediacontent .left-content {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  margin-left: 30;
+  font-size: 20;
+
+}
+#mediacontent .right-content {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  margin-right: 30;
+}
+#subscribed {
+  margin-left: 20;
+}
+.view_grid {
+  margin-left: 20;
+  background-image: url('/view_grid.png'); /* 배경 이미지 설정 */
+  background-size: cover; /* 이미지를 버튼 크기에 맞춤 */
+  width: 30px; /* 버튼의 너비 설정 */
+  height: 30px; /* 버튼의 높이 설정 */
+  border: none; /* 기본 버튼 테두리 제거 */
+  color: transparent; /* 텍스트 숨김 */
+  font-size: 0; /* 텍스트 크기 숨김 */
+}
+.view_list {
+  background-image: url('/view_list.png'); /* 배경 이미지 설정 */
+  background-size: cover; /* 이미지를 버튼 크기에 맞춤 */
+  width: 30px; /* 버튼의 너비 설정 */
+  height: 30px; /* 버튼의 높이 설정 */
+  border: none; /* 기본 버튼 테두리 제거 */
+  color: transparent; /* 텍스트 숨김 */
+  font-size: 0; /* 텍스트 크기 숨김 */
+}
+
+#newsstand-grid {
+  display: grid;
+  height : 450px;
+  width : 1245px;
+  grid-template-rows: 112.5px 112.5px 112.5px 112.5px;
+  grid-template-columns: 207.5px 207.5px 207.5px 207.5px 207.5px 207.5px;
+  margin-top: 30;
+  margin-left: 30;
+  /*background-color: aqua;*/
+}
+#newsstand-grid div {
+  border: 1px solid #ccc; /* 각 셀에 회색 테두리 추가 */
+  width: 100%;  /* 셀이 부모 컨테이너에서 차지하는 전체 너비 */
+  height: 100%; /* 셀이 부모 컨테이너에서 차지하는 전체 높이 */
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+.news-icon {
+  width: 50px; 
+  height: 50px;
+}
