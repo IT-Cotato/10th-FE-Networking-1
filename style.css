@@ -1,0 +1,269 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+#newsstand {
+  width: 1715px;
+  height: 968px;
+  flex-shrink: 0;
+  text-align: center; 
+  margin-top: 56;
+  margin-bottom: 56;
+  margin-left: -98;
+  margin-right: -99;
+  display: block;
+}
+#newsstand a:visited {
+  color: inherit;
+}
+#newsstand a{
+  text-decoration: none;
+}
+
+
+
+#newsstand-header {
+  width: 1307px;
+  height: 104px;
+  margin-top: 42px;
+  margin-left: 201px;
+  margin-right: 207px;
+  margin-bottom: 6px; /*수정해보기*/
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e0e0e0;
+  background-color: #fff;
+}
+#newsstand-header .left-content {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+}
+#newsstand-header .bold{
+  font-weight: bold;
+  color: black;
+  font-size: 1.6rem;
+}
+#newsstand-header .left-content .news-icon{
+  margin-left: 20;
+  margin-top: 5;
+  height: auto;
+}
+#newsstand-header .right-content {
+  justify-content: flex-end;
+  margin-right: 20;
+  margin-top: 15;
+  display: flex;
+  align-items: center;
+}
+#newsstand-header .date{
+  font-size: 1rem;
+  color: #858585;
+}
+
+
+
+#newsstand-gray {
+  width: 1307px;
+  height: 104px;
+  flex-shrink: 0;
+  text-align: center; 
+  /*background-color: aqua;*/
+  margin-left: 201px;
+  margin-right: 207px;
+  margin-bottom: 8px;
+  display: flex; /* Flexbox를 사용하여 가로 정렬 */
+  justify-content: space-between; /* 두 요소 사이에 공간을 배분 */
+  align-items: center; /* 세로 축에서 중앙 정렬 */
+}
+#newsstand-gray #content{
+  text-align: left;
+  border: 1px solid #e0e0e0; /* 박스를 위한 테두리 */
+  padding: 15px; /* 내부 여백을 설정하여 텍스트와 박스 사이에 공간을 만듦 */
+  background-color: #f9f9f9; /* 배경 색상 설정 (연한 회색) */
+  width: 45%; /* 항목의 너비를 설정하여 두 항목이 균등하게 배치되도록 함 */
+}
+#newsstand-gray .left{
+  margin-left: 30;
+}
+#newsstand-gray .right{
+  margin-right: 30;
+}
+#newsstand-gray .bold{
+  font-weight: bold;
+}
+#newsstand-gray .underline {
+  text-decoration: none;
+  margin-left: 20;
+}
+#newsstand-gray .underline:hover {
+  text-decoration: underline;
+}
+
+/* #mediacontent {
+  width: 1305px;
+  height: 620px;
+  flex-shrink: 0;
+  text-align: center; 
+  display: inline-block;
+  margin-left: 201;
+  margin-right: 209;
+  background-color: aqua;
+}
+*/
+
+#mediaheader {
+  display: flex; /* Flexbox로 자식 요소를 가로로 배치 */
+  justify-content: space-between; /* 좌우로 요소 배치 및 간격 설정 */
+  align-items: center; /* 세로 중앙 정렬 */
+  margin-left: 201px;
+  margin-right: 207px;
+}
+#mediaheader .left-content {
+  justify-content: flex-start;
+  display: flex;
+  align-items: center;
+  margin-left: 30;
+  font-size: 20;
+
+}
+#mediaheader .right-content {
+  justify-content: flex-end;
+  display: flex;
+  align-items: center;
+  margin-right: 30;
+}
+#subscribed {
+  margin-left: 20;
+}
+.view_grid {
+  margin-left: 20;
+  background-image: url('/view_grid.png'); /* 배경 이미지 설정 */
+  background-size: cover; /* 이미지를 버튼 크기에 맞춤 */
+  width: 30px; /* 버튼의 너비 설정 */
+  height: 30px; /* 버튼의 높이 설정 */
+  border: none; /* 기본 버튼 테두리 제거 */
+  color: transparent; /* 텍스트 숨김 */
+  font-size: 0; /* 텍스트 크기 숨김 */
+}
+.view_list {
+  background-image: url('/view_list.png'); /* 배경 이미지 설정 */
+  background-size: cover; /* 이미지를 버튼 크기에 맞춤 */
+  width: 30px; /* 버튼의 너비 설정 */
+  height: 30px; /* 버튼의 높이 설정 */
+  border: none; /* 기본 버튼 테두리 제거 */
+  color: transparent; /* 텍스트 숨김 */
+  font-size: 0; /* 텍스트 크기 숨김 */
+}
+
+
+
+
+
+#newsstand-grid {
+  display: none; /* 그리드 잠깐 숨기기 */
+  height : 450px;
+  width : 1245px;
+  grid-template-rows: 112.5px 112.5px 112.5px 112.5px;
+  grid-template-columns: 207.5px 207.5px 207.5px 207.5px 207.5px 207.5px;
+  margin-top: 30;
+  margin-left: 30;
+  /*background-color: aqua;*/
+}
+#newsstand-grid div {
+  border: 1px solid #ccc; /* 각 셀에 회색 테두리 추가 */
+  width: 100%;  /* 셀이 부모 컨테이너에서 차지하는 전체 너비 */
+  height: 100%; /* 셀이 부모 컨테이너에서 차지하는 전체 높이 */
+  display: flex;
+  align-items: center; /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+.news-icon {
+  width: 50px; 
+  height: 50px;
+}
+
+#listcontent{
+  width: 1280px;
+  height: 40px;
+  /*border: 1px solid #e0e0e0; /* 박스를 위한 테두리 */
+
+  /*background-color: #f9f9f9; /* 배경 색상 설정 (연한 회색) */
+  margin-top: 20;
+  margin-left: 201px;
+  margin-right: 207px;
+  text-align: center;
+  display: flex; /* Flexbox를 사용하여 가로 정렬 */
+  align-items: center; /* 세로 축에서 중앙 정렬 */
+  padding: 16px 0px;
+
+}
+#listcontent ul{
+  list-style: none; /* 기본 리스트 스타일 제거 */
+  display: flex; /* 가로로 배치 */
+  justify-content: flex-start; /*왼쪽 정렬*/
+  padding: 16px; /* 내부 여백을 설정하여 텍스트와 박스 사이에 공간을 만듦 */
+  border: 1px solid #D2DAE0;
+  background-color: #f9f9f9; /* 배경 색상 설정 (연한 회색) */
+  margin-left: 30;
+  width:100%
+}
+#listcontent li{
+  margin: 0 16px; /* 각 리스트 항목 간격 */
+  color: #879298;
+  font-family: "Pretendard Variable";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+#contentbox{
+  border: 1px solid #D2DAE0;
+  height: 325;
+  width: 1199;
+  margin: 0 auto; /* 가로 가운데 정렬 */
+  padding: 24;
+}
+#contentbox #header{
+  display: flex; /* 가로로 배치 */
+  justify-content: flex-start; /*왼쪽 정렬*/
+  margin-bottom: 16;
+}
+#contentbox #header img{
+  width: 52.5px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-right: 16px;
+}
+#contentbox #header .Edit_Date{
+  margin-right: 16px;
+  font-family: "Pretendard Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: #5F6E76;
+  margin-top: 2;
+}
+#contentbox #header .subscribe{
+  display: inline-flex;
+  height: 24px;
+  padding: 0px 6px;
+  justify-content: center;
+  align-items: center;
+  gap: 2px;
+  flex-shrink: 0;
+  border-radius: 50px;
+  border: 1px solid #D2DAE0;
+  background: #FFF;
+}
+#contentbox #header .subscribe span{
+  font-family: "Pretendard Variable";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  color: #879298;
+}
