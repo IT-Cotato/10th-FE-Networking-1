@@ -1,0 +1,24 @@
+@import url(../src/components/CategoryBar/CategoryBar.css);
+@import url(../src/components/Header/Header.css);
+@import url(../src/components/RollingBar/RollingBar.css);
+@import url(../src/components/RollingBar/CreateRollingBar.css);
+
+body {
+    box-sizing: border-box;
+    display: flex;
+    width: 1280px;
+    height: auto;
+    margin: 0;
+}
+
+#header {
+    margin: 58px 175px 40px 175px;
+}
+
+#rollingBar {
+    margin: 40px 175px 34.5px 175px;
+}
+
+#categoryBar {
+    margin: 26.5px 175px 0px 175px;
+}

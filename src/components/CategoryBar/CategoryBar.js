@@ -1,4 +1,4 @@
-export function CategoryBar() {
+export default function CategoryBar() {
     const category = [
         '종합/경제',
         '방송/통신',
@@ -36,10 +36,9 @@ export function CategoryBar() {
 
     function handleClick(event) {
         // 모든 selected class 제거
-        const categoryElements = document.querySelectorAll('.selected');
-        categoryElements.forEach((element) => {
-            element.classList.remove('selected');
-        });
+        const categoryElements = document.querySelectorAll('.categoryWrapper'); // 전체 카테고리 요소를 가져옴
+        categoryElements[selectedCategoryIndex].classList.remove('selected'); // 이전에 선택된 카테고리 인덱스를 이용해 selected class 제거
+        console.log(categoryElements);
 
         const clickedWrapper = event.target.closest('.categoryWrapper')
         clickedWrapper.classList.add('selected'); // 선택한 categoryWrapper의 class에 selected를 추가
@@ -49,18 +48,21 @@ export function CategoryBar() {
         updateMediaCount(clickedWrapper);
     };
 
-    // 언론사 수 업데이트
+    /**
+     * 언론사 수 업데이트
+     * @param {Node} clickedWrapper 선택된 카테고리 가져와서 해당 카테고리의 언론사 수를 가져오기 위해
+     */
     function updateMediaCount(clickedWrapper) {
         currentMediaNum = 1; // 첫번째 언론사로 초기화
 
-        const mediaCount = document.querySelectorAll('.mediaCount');
-        const clickedMediaCount = clickedWrapper.querySelector('.mediaCount');
+        const mediaCount = document.querySelectorAll('.mediaCount'); 
+        const clickedMediaCount = clickedWrapper.querySelector('.mediaCount'); // 선택한 언론
 
         mediaCount.forEach((element) => {
             if(element === clickedMediaCount) {
                 clickedMediaCount.innerHTML = `${currentMediaNum}<span class="totalMediaCount">/${mediaNum[selectedCategoryIndex]}</span>`;
             } else {
-                element.innerHTML = ''; // 나머지 카테고리의 언론사 수 초기화
+                element.innerHTML = ''; // 나머지 카테고리의 언론사 수 제거
             }
         })
     };
@@ -74,6 +76,6 @@ export function CategoryBar() {
     })
 
     return `
-        <nav class="categoryBar">${categories}</nav>
+        <div class="categoryBar">${categories}</div>
     `
 }
