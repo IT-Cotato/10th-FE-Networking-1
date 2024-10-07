@@ -1,0 +1,29 @@
+#header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 930px;
+  margin: 0 auto;
+  margin-top: 58px;
+  margin-bottom: 40px;
+}
+
+#logo-section {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#logo-img {
+  width: 24px;
+  height: 24px;
+}
+
+#date {
+  font-size: 16px;
+  color: #5f6e76;
+}
+
+#name {
+  margin: 0 0 0 0;
+}
