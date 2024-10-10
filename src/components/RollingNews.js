@@ -33,6 +33,43 @@ function RollingNews() {
 
   createRollingNews.appendChild(wrapper);
 
+  // DOM이 모두 로드 되면 실행
+  document.addEventListener("DOMContentLoaded", () => {
+    const rollingElements = document.querySelectorAll("#rolling-news");
+    if (rollingElements[0]) {
+      setInterval(() => rollingCallback(rollingElements[0]), 5000);
+    }
+
+    // 2번째 뉴스 바는 1초 뒤부터 돌아가도록 설정
+    if (rollingElements[1]) {
+      setTimeout(() => {
+        setInterval(() => rollingCallback(rollingElements[1]), 5000);
+      }, 1000);
+    }
+  });
+
+  function rollingCallback(rollingBar) {
+    const current = rollingBar.querySelector(".current");
+    const prev = rollingBar.querySelector(".prev");
+    const next = rollingBar.querySelector(".next");
+
+    // prev 삭제
+    prev.classList.remove("prev");
+
+    // current -> prev
+    current.classList.remove("current");
+    current.classList.add("prev");
+
+    // next -> current
+    if (next.nextElementSibling) {
+      next.nextElementSibling.classList.add("next");
+    } else {
+      rollingBar.querySelector("ul li:first-child").classList.add("next");
+    }
+    next.classList.remove("next");
+    next.classList.add("current");
+  }
+
   return createRollingNews;
 }
 

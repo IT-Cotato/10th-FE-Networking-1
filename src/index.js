@@ -2,27 +2,26 @@ import createCategoryBar from "./components/categoryBar.js";
 import header from "./components/Header.js";
 import rollingNews from "./components/RollingNews.js";
 import PressNews from "./components/PressNews.js";
+import tabBar from "./components/TabBar.js";
 
 export const index = () => {
   const app = document.getElementById("app");
+  const categoryBar = createCategoryBar();
+  const tabbar = tabBar();
 
-  app.appendChild(header());
+  app.innerHTML = `
+    ${header().outerHTML}
+    <div id="news-container">
+      ${rollingNews().outerHTML}
+      ${rollingNews().outerHTML}
+    </div>
+    <div id="news-list">
+      ${PressNews().outerHTML}
+    </div>
+  `;
 
-  const newsContainer = document.createElement("div");
-  newsContainer.id = "news-container";
-
-  newsContainer.appendChild(rollingNews());
-  newsContainer.appendChild(rollingNews());
-
-  app.appendChild(newsContainer);
-
-  const newsList = document.createElement("div");
-  newsList.id = "news-list";
-
-  newsList.appendChild(createCategoryBar());
-  newsList.appendChild(PressNews());
-
-  app.appendChild(newsList);
+  app.querySelector("#news-list").appendChild(tabbar);
+  app.querySelector("#news-list").appendChild(categoryBar);
 };
 
 index();
