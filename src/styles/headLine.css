@@ -1,3 +1,25 @@
+/* CSS 애니메이션 */
+@keyframes slideUp {
+    0% {
+        transform: translateY(100%);
+        /* 아래에서 시작 */
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        /* 원래 위치로 */
+        opacity: 1;
+    }
+}
+
+.headline h1,
+.headline h2 {
+    animation: slideUp 0.5s ease forwards;
+    /* 애니메이션 적용 */
+    opacity: 0;
+}
+
 article {
     width: 800px;
     height: 40px;
@@ -38,9 +60,7 @@ article {
         color: rgb(82, 89, 102);
     }
 
-    :hover {
-        h2 {
-            text-decoration: underline;
-        }
+    div:hover h2 {
+        text-decoration: underline;
     }
 }
