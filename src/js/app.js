@@ -1,14 +1,24 @@
 import { getFormattedDate } from "./utils/dateUtils.js";
 import { fetchRollerData } from "./services/fetchRollerData.js";
+import { createListItems } from "./components/listItemCreator.js";
 import { createRoller } from "./components/rollerComponent.js";
+import { initTabSwitcher } from "./components/tabSwitcher.js";
+import { initViewerSwitcher } from "./components/viewerSwitcher.js";
+import { initCategorySwitcher } from "./components/categorySwitcher.js";
 
 document.getElementById("current-date").textContent = getFormattedDate();
+initTabSwitcher();
+initViewerSwitcher();
+initCategorySwitcher();
 
 // 자동 롤링 배너 초기화
 async function initRoller() {
   try {
-    await fetchRollerData("#news-1-contents", "news1");
-    await fetchRollerData("#news-2-contents", "news2");
+    const news1Data = await fetchRollerData("news1");
+    const news2Data = await fetchRollerData("news2");
+
+    createListItems(news1Data, "#news-1-contents");
+    createListItems(news2Data, "#news-2-contents");
 
     createRoller("#news-1-contents", 0);
     createRoller("#news-2-contents", 1000);
