@@ -1,6 +1,8 @@
 @import url("CategoryBar.css");
 @import url("Header.css");
 @import url("RollingNews.css");
+@import url("TabBar.css");
+@import url("PressNews.css");
 
 body {
   width: 1280px;
@@ -16,9 +18,15 @@ body {
 }
 
 #news-list {
-  border: 1px solid;
-  border-color: red;
   width: 930px;
   margin: 0 auto;
   height: 388px;
+  border: 1px solid;
+}
+
+#tab-bar {
+  width: 930px;
+  height: 24px;
+  margin: 0 auto;
+  margin-bottom: 24px;
 }
