@@ -1,7 +1,13 @@
 @import url(../src/components/CategoryBar/CategoryBar.css);
 @import url(../src/components/Header/Header.css);
+@import url(../src/components/MediaTab/MediaTab.css);
 @import url(../src/components/RollingBar/RollingBar.css);
 @import url(../src/components/RollingBar/CreateRollingBar.css);
+@import url(../src/assets/fonts/pretendardVariable.css);
+@import url(../src/components/AllMedia/NewsList/NewsList.css);
+@import url(../src/components/AllMedia/GridView/GridView.css);
+@import url(../src/components/SubscribedMedia/NewsList/NewsList.css);
+@import url(../src/components/SubscribedMedia/GridView/GridView.css);
 
 body {
     box-sizing: border-box;
@@ -9,6 +15,16 @@ body {
     width: 1280px;
     height: auto;
     margin: 0;
+
+    font-family: 'Pretendard Variable';
+}
+
+@font-face {
+	font-family: 'Pretendard Variable';
+	font-weight: 45 920;
+	font-style: normal;
+	font-display: auto;
+	src: url('../src/assets/fonts/PretendardVariable.ttf')
 }
 
 #header {
@@ -19,6 +35,14 @@ body {
     margin: 40px 175px 34.5px 175px;
 }
 
-#categoryBar {
+#mediaTab {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin: 34.5px 175px 26.5px 175px;
+}
+
+#tabContent {
     margin: 26.5px 175px 0px 175px;
 }

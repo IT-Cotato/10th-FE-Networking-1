@@ -1,24 +1,4 @@
-export default function CategoryBar() {
-    const category = [
-        '종합/경제',
-        '방송/통신',
-        'IT',
-        '영자지',
-        '스포츠/연예',
-        '매거진/전문지',
-        '지역'
-    ];
-
-    // 언론사 수 (임시값)
-    const mediaNum = [
-        '10',
-        '20',
-        '30',
-        '40',
-        '50',
-        '60',
-        '70',
-    ]
+export default function CategoryBar(category, mediaNum) {
 
     let selectedCategoryIndex = 0;
     let currentMediaNum = 1;
@@ -38,7 +18,6 @@ export default function CategoryBar() {
         // 모든 selected class 제거
         const categoryElements = document.querySelectorAll('.categoryWrapper'); // 전체 카테고리 요소를 가져옴
         categoryElements[selectedCategoryIndex].classList.remove('selected'); // 이전에 선택된 카테고리 인덱스를 이용해 selected class 제거
-        console.log(categoryElements);
 
         const clickedWrapper = event.target.closest('.categoryWrapper')
         clickedWrapper.classList.add('selected'); // 선택한 categoryWrapper의 class에 selected를 추가
