@@ -1,6 +1,12 @@
 import { createElement } from "../utils/createElement.js";
 
-function CreateCategoryBar() {
+async function fetchNewsData() {
+  const response = await fetch("/src/data/news.json");
+  const data = await response.json();
+  return data;
+}
+
+function CreateCategoryBar(type) {
   const categoryBar = document.createElement("div");
   categoryBar.id = "category-bar";
 
@@ -14,66 +20,123 @@ function CreateCategoryBar() {
     "지역",
   ];
 
+  const myPress = ["연합신문", "SBS 비즈", "서울경제", "시사인", "중앙일보"];
+
   let selectedCategory = null;
   let currentPage = 1;
 
-  function onClickCategory(categorySection) {
-    // 이전 선택된 카테고리 초기화
+  function onClickCategory(categorySection, type, totalPage) {
     if (selectedCategory && selectedCategory !== categorySection) {
       selectedCategory.classList.remove("selected-category");
-      selectedCategory.querySelector(".current-page").remove();
+      selectedCategory.querySelector(".current-page")?.remove();
     }
 
-    // 새로 클릭된 카테고리에 페이지 수 추가
-    // css 따로 적용해야해서 다른 span으로 감쌌음.
-    if (!categorySection.querySelector(".current-page")) {
-      const currentPageWrapper = createElement("", "current-page", "span");
-
-      // // 현재 페이지
-      const currentPageSpan = createElement(
-        currentPage,
-        "current-page-number",
-        "span"
-      );
-
-      // // 전체 페이지
-      const totalPageSpan = createElement("/81", "total-page-number", "span");
-
-      currentPageWrapper.appendChild(currentPageSpan);
-      currentPageWrapper.appendChild(totalPageSpan);
-
-      categorySection.appendChild(currentPageWrapper);
+    if (type === "total") {
+      if (!categorySection.querySelector(".current-page")) {
+        const currentPageWrapper = createElement("", "current-page", "span");
+        const currentPageSpan = createElement(
+          currentPage,
+          "current-page-number",
+          "span"
+        );
+        const totalPageSpan = createElement(
+          `/${totalPage}`,
+          "total-page-number",
+          "span"
+        );
+        currentPageWrapper.appendChild(currentPageSpan);
+        currentPageWrapper.appendChild(totalPageSpan);
+        categorySection.appendChild(currentPageWrapper);
+      }
+    } else if (type === "my") {
+      if (!categorySection.querySelector(".icon-wrap")) {
+        const iconWrapper = createElement("", "icon-wrap", "div");
+        const icon = createElement("", "press-icon", "img");
+        icon.src = "/src/assets/images/화살표.png";
+        iconWrapper.appendChild(icon);
+        categorySection.appendChild(iconWrapper);
+      }
     }
 
     categorySection.classList.add("selected-category");
     selectedCategory = categorySection;
   }
 
-  // map 사용해서 section 반환
-  const categorySections = categories
-    .map(
-      (category) => `
+  async function initialize() {
+    const newsData = type === "total" ? await fetchNewsData() : null;
+
+    let categorySections = "";
+
+    if (type === "total") {
+      categorySections = categories
+        .map(
+          (category) => `
+     <section>
+       <span class="category-name">${category}</span>
+     </section>
+   `
+        )
+        .join("");
+    } else if (type === "my") {
+      categorySections = myPress
+        .map(
+          (press) => `
       <section>
-        <span class="category-name">${category}</span>
+        <span class="press-name">${press}</span>
       </section>
     `
-    )
-    .join("");
+        )
+        .join("");
+    }
 
-  // 생성된 HTML을 categoryBar에 추가
-  categoryBar.innerHTML = categorySections;
+    categoryBar.innerHTML = categorySections;
 
-  // 모든 섹션에 eventListener 추가
-  categoryBar.querySelectorAll("section").forEach((categorySection) => {
-    categorySection.addEventListener("click", () =>
-      onClickCategory(categorySection)
-    );
-  });
+    categoryBar.querySelectorAll("section").forEach((categorySection) => {
+      if (type === "total") {
+        const categoryName =
+          categorySection.querySelector(".category-name").innerText;
+        const totalPage = getTotalPage(newsData, categoryName);
 
-  // 첫 번째 카테고리를 기본 선택 -> > querySelector는 지정된 선택자에 해당하는 첫 번째 요소만 선택함. 여러개의 요소가 있어도 첫번째로 발견한 요소 가져옴...
-  onClickCategory(categoryBar.querySelector("section"));
+        categorySection.addEventListener("click", () =>
+          onClickCategory(categorySection, type, totalPage)
+        );
+      } else if (type === "my") {
+        categorySection.addEventListener("click", () =>
+          onClickCategory(categorySection, type)
+        );
+      }
+    });
+
+    if (type === "total") {
+      const firstCategorySection = categoryBar.querySelector("section");
+      if (firstCategorySection) {
+        onClickCategory(
+          firstCategorySection,
+          type,
+          getTotalPage(
+            newsData,
+            firstCategorySection.querySelector(".category-name").innerText
+          )
+        );
+      }
+    } else if (type === "my") {
+      const firstCategorySection = categoryBar.querySelector("section");
+      if (firstCategorySection) {
+        onClickCategory(firstCategorySection, type);
+      }
+    }
+  }
+
+  initialize();
 
   return categoryBar;
+}
+
+function getTotalPage(data, category) {
+  const categoryData = Object.values(data).find(
+    (item) => item.category === category
+  );
+  return categoryData ? categoryData.totalPage : 1;
 }
 
 export default CreateCategoryBar;
