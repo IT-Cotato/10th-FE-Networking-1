@@ -1,5 +1,9 @@
 @import './header.css';
 @import './rolling.css';
+@import './tabBar.css';
+@import './contents/allList.css';
+@import './listCategory.css';
+@import './subscribeButton.css';
 
 @font-face {
   font-family: "Pretendard Variable";
@@ -21,7 +25,6 @@ body {
 }
 
 .type-tab-area {
-  border: 2px solid #BB9718;
   width: 930px;
   height: 24px;
   margin: 0 auto;
@@ -29,9 +32,9 @@ body {
 }
 
 .news-content-area {
-  border: 2px solid #BB6618;
   width: 930px;
   height: 388px;
   margin: 0 auto;
   margin-bottom: 24px;
+  border: 1px solid #D2DAE0;
 }
